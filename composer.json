@@ -1,0 +1,10 @@
+{
+    "name": "xoxoday/plumapi",
+    "description": "This package contains plum API for order creation",
+    "autoload": {
+        "psr-4": {
+            "Xoxoday\\Plumapi\\": "src/"
+        }
+    },
+    "require": {}
+}
