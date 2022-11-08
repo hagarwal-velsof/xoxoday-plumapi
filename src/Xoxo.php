@@ -49,7 +49,7 @@ class Xoxo
         $response = Http::withHeaders([
             'Content-type' => 'application/json',
         ])->post($url, $data);
-
+       
         if ($response->status() == 200) {
             $result = json_decode(json_encode($response->object()), true);
             if (isset($result) && !empty($result) && isset($result['access_token']) && $result['access_token'] != '' && isset($result['refresh_token']) && $result['refresh_token'] != '') {
@@ -115,21 +115,17 @@ class Xoxo
                 'Content-type' => 'application/json',
             ])->post($url, $data);
 
-          
+            dd($response->object());
+
+
+            $result = json_decode(json_encode($response->object()), true);
 
             if ($response->status() == 200) {
-                $result = json_decode(json_encode($response->object()), true);
                 if (isset($result['data']['placeOrder']['status']) && $result['data']['placeOrder']['status'] == 1) {
                     return $result;
-                } else {
-                    return $result;
-                }
+                } 
             }
+            return $result;
         }
-    }
-
-    public function test(String $sName)
-    {
-        return 'Hi ' . $sName . '! How are you doing today?';
     }
 }
