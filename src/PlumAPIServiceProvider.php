@@ -23,7 +23,14 @@ class PlumAPIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
+        if ($this->app->runningInConsole()) {
+            // Publish assets
+            $this->publishes([
+                __DIR__ . '/Database/Seeders/XoplumApiSeeder.php' => database_path('Seeders/XoplumApiSeeder.php'),
+                __DIR__ . '/config/xoplum.php' => config_path('xoplum.php'),
+                __DIR__ . '/Jobs/PlumOrder.php' => app_path('Jobs\PlumOrder.php')
+            ], 'Plum_files');
+        }
     }
 }

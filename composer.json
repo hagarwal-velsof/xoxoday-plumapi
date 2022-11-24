@@ -6,5 +6,12 @@
             "Xoxoday\\Plumapi\\": "src/"
         }
     },
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xoxoday\\Plumapi\\PlumAPIServiceProvider"
+            ]
+        }
+    }
 }
