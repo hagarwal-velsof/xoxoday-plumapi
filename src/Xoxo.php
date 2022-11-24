@@ -33,6 +33,7 @@ class Xoxo
                 $xoplum_order->status = 0;
                 if ($xoplum_order->save()) {
                     dispatch(new PlumOrder($xoplum_order->id));
+                    return $xoplum_order->id;
                 }
             }
         }
