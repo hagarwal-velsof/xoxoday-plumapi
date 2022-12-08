@@ -3,7 +3,6 @@
 namespace Xoxoday\Plumapi;
 
 use App\Jobs\PlumOrder;
-use  Xoxoday\Plumapi\Model\PlumApiCredential;
 use Illuminate\Support\Facades\Http;
 use Config;
 use Xoxoday\Plumapi\Model\xoplum_order;
